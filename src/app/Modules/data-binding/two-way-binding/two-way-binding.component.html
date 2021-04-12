@@ -1,0 +1,14 @@
+<div class="container">
+    <p>{{userName}}</p>
+<input [value] = "userName" (input)="changeUserName($event)"/>
+<!--two-way-binding: need import FormsModule-->
+<p>{{email}}</p>
+<input [(ngModel)]="email"/>
+<p>{{color}}</p>
+<select [(ngModel)]="color">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+</select>
+
+</div>

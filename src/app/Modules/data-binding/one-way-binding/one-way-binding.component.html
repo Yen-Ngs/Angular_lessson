@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>name: {{name}}</h1>
+    <h1>title:{{showTitile()}}</h1>
+    <p [innerHTML]="name"></p>
+    <input value="{{name}}"><br/>
+    <input [value]="name"><br/>
+    <img [src]="imgSrc" />
+    <img src="{{imgSrc}}" /><br/>
+    <input #tInput />
+    <button class="btn btn-success" (click)="changeName(tInput.value)">Set titile</button>
+</div>

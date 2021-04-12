@@ -1,0 +1,69 @@
+<div class="container">
+    <h3>NgIf: Dùng để ẩn/hiện 1 tag/component</h3>
+<!--Thẻ p chỉ hiện ra khi đièu kiện =true-->
+<p *ngIf="isActive">Panda</p>
+<button (click)="isActive=!isActive">Toggle</button>
+<div class="bg-primary text-light mt-5 rounded p-3">
+    <div *ngIf="isLoggedIn; else loginTemplate">
+        <p>Do you see me?</p>
+        <button (click)="isLoggedIn=false">Log out</button>
+    </div>
+    <!-- <div *ngIf="!isLoggedIn">
+        <p>Please, Log in!</p>
+        <button (click)="isLoggedIn=true">Log In</button>
+    </div> -->
+</div>
+<!--ng-template: mặc định nội dung bên trong thẻ này sẽ không dược hiển thị ra UI-->
+<!--nội dung này chỉ được hiển thị ta gọi tới template varibable của nó -->
+<ng-template #loginTemplate >
+    <p>Log in</p>
+    <button (click)="isLoggedIn=true">Log In</button>
+
+</ng-template>
+<hr/>
+
+<h3 class="mt-4">NgSwitch: app/disappear tag/component with a conditional list</h3>
+<div [ngSwitch]="color" class="mt-3">
+    <p *ngSwitchCase="'primary'" class="bg-primary">Primary</p>
+    <p *ngSwitchCase="'secondary'" class="bg-secondary">secondary</p>
+    <p *ngSwitchCase="'success'" class="bg-success">success</p>
+    <p *ngSwitchCase="'warning'" class="bg-warning">warning</p>
+    <p *ngSwitchCase="'danger'" class="bg-danger">Danger</p>
+    <p *ngSwitchDefault></p>
+</div>
+<select [value]="color" (change)="changeColor($event)">
+    <option value="">Default</option>
+    <option value="primary">primary</option>
+    <option value="secondary">secondary</option>
+    <option value="success">success</option>
+    <option value="warning">warning</option>
+    <option value="danger">danger</option>
+</select>
+<hr>
+<h3>NgFor: Duyet Mang</h3>
+<p *ngFor="let student of students; let idx =index; count as total">
+   {{idx+1}}/{{total}} -  Name:{{student.name}} -Age:{{student.age}}
+</p>
+<!--check students differ from null/undefined moi duyet mang-->
+<!--Angular không cho phép 2 structural directives trên cùng 1 thẻ-->
+<ng-container *ngIf="students">
+    <p *ngFor="let student of students; let idx =index; count as total">
+        {{idx+1}}/{{total}} -  Name:{{student.name}} -Age:{{student.age}}
+     </p>
+</ng-container>
+<!--kết hợp ngTemplate and ngContainer để tái sử dụng component-->
+<ng-template #templateAlert>
+    <div class="alert alert-danger">
+        <span>Something went wrong!</span>
+    </div>
+</ng-template>
+<ng-container *ngTemplateOutlet="templateAlert">
+
+</ng-container>
+<ng-container *ngTemplateOutlet="templateAlert">
+    
+</ng-container>
+<ng-container *ngTemplateOutlet="templateAlert">
+    
+</ng-container>
+</div>

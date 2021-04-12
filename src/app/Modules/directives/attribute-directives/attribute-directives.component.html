@@ -1,0 +1,30 @@
+<hr>
+<div class="container text-center">
+<h3>Demo ngClass</h3>
+<p 
+class="text-center" 
+[class]="{
+    'bg-success':isActive,
+    'bg-light':!isActive
+}">
+    Hello World!
+</p>
+<p class="text-center" [class.bg-primary]="isActive">Panda</p>
+<button (click)="isActive=!isActive">Toggle</button>
+<hr/>
+<h3>Demo ngStyle</h3>
+<p [style]="{
+  'background-color':color
+}">
+       Panda
+</p>
+<div
+  style="height:200px"
+  [style]="{
+    'background-image':'url(' +imgSrc +')'
+  }
+    "
+></div>
+<div [innerHTML]="html"></div>
+
+</div>
