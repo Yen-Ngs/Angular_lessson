@@ -11,6 +11,9 @@ import { ContentComponent } from './bai-tap-layout/content/content.component';
 import { BaiTapLayoutModule } from './Modules/bai-tap-layout/bai-tap-layout.module';
 import { DataBindingModule } from './Modules/data-binding/data-binding.module';
 import {DirectivesModule} from './Modules/directives/directives.module'
+import { Baitap6Module } from './Modules/baitap6/baitap6.module';
+import { InteractionModule } from './Modules/interaction/interaction.module';
+import { DOMAngularModule } from './Modules/domangular/domangular.module';
 
 @NgModule({
   declarations: [// những thẻ có thể sử dụng cho module này 
@@ -20,8 +23,13 @@ import {DirectivesModule} from './Modules/directives/directives.module'
     
   ],
   imports: [ // các module khác muốn sử dụng được trong module này thì f import
-    BrowserModule,BaiTapLayoutModule,DataBindingModule,DirectivesModule
-
+    BrowserModule,
+    BaiTapLayoutModule,
+    DataBindingModule,
+    DirectivesModule,
+    Baitap6Module,
+    InteractionModule,
+    DOMAngularModule,
   ],
   providers: [], // nơi chứa các service muốn sử dụng được cho module này khai báo tại đây
   bootstrap: [AppComponent] // các component sử dụng được trong file index.html

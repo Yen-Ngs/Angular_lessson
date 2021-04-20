@@ -1,0 +1,5 @@
+<h1 class="text-white text-center">Panda Cinema</h1>
+<app-add-movie (onAdd)="handleAddMovie($event)"></app-add-movie>
+<app-movie-list [movies]="movies"
+(onDel)="deleteMovie($event)"></app-movie-list>
+

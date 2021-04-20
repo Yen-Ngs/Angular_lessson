@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ProductListComponent } from './Modules/domangular/product-list/product-list.component';
 
 @Component({
   selector: 'app-root', // tên thẻ 
@@ -10,4 +11,13 @@ import { Component } from '@angular/core';
 //xử lý các nút trên giao diện của thẻ <app-root>
 export class AppComponent {
   title = 'angular';
+  @ViewChild('btnAddProduct') tagBtnAdd:any;
+  @ViewChild('tagDSSP') tagDSSP: ProductListComponent;
+  addProduct():void{
+    console.log(this.tagBtnAdd.nativeElement.id);
+    this.tagBtnAdd.nativeElement.className = "btn btn-danger";
+    
+
+
+  }
 }

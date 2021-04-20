@@ -1,0 +1,53 @@
+<div class="card container">
+    <div class="card-header">
+        Product List Management
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+          <label for="">ID</label>
+          <input type="text" class="form-control" [(ngModel)]="form.Id" >
+        </div>
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="form.name">
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" class="form-control" [(ngModel)]="form.price">
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn btn-success" (click)="addProduct()">
+            Add Product
+        </button>
+
+    </div>
+    </div>
+    <table class="table container">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let product of products; let idx=index" 
+           [class]="{
+               'bg-secondary':(idx+1)%2 ===0
+           }"
+           >
+               <td>{{idx +1}}</td>
+               <td>{{product.Id}}</td>
+               <td>{{product.name}}</td>
+               <td>{{product.price.toLocaleString()}}</td>
+           </tr>
+           <tr *ngIf="total">
+               <td colspan="4">
+                   {{total}}
+               </td>
+           </tr>
+        </tbody>
+    </table>
+    

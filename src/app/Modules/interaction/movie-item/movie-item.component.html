@@ -1,0 +1,12 @@
+<div class="card text-dark" [style]="{
+    'background-color':color
+}">
+    <img class="card-img-top" [src]="movie.image"
+    style="height:400px">
+    <div class="card-body">
+        <h4 class="card-title">{{movie.name}}</h4>
+        <p class="card-text">{{movie.description}}</p>
+        <button class="btn btn-secondary" (click)="selectMovie()">More Details</button>
+        <button class="btn btn-danger" (click)="deleteMovie()">Delete Movie</button>
+    </div>
+</div>
